@@ -1,0 +1,162 @@
+/* Gesamte Seite zentrieren und Hintergrundfarbe setzen */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffA500; /* Orange Hintergrund */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Zentriert den Hauptcontainer horizontal */
+    align-items: center; /* Zentriert den Hauptcontainer vertikal */
+    min-height: 100vh; /* Höhe der Seite auf gesamte Bildschirmhöhe setzen */
+}
+
+/* Überschrift oben links mit derselben Umrandung wie der Hauptcontainer */
+.header-container {
+
+    position: absolute; /* Fixiert die Position der Überschrift */
+    top: 0px; /* Abstand vom oberen Rand */
+    left: 50px; /* Abstand vom linken Rand */
+    padding: 20px 0; /* Innenabstand */
+    border-radius: 15px; /* Abgerundete Ecken */
+    background: #999999; /* Hintergrundfarbe */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Schatteneffekt */
+    border: 5px solid #333; /* Dunkler Rahmen */
+    text-align: center; /* Text in der Mitte */
+}
+
+/* Stil für die Überschrift */
+h1 {
+    color: #ffA500; /* Orange Schriftfarbe */
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 10px;
+    background: #999999; /* Hintergrundfarbe des Headers */
+    border-radius: 10px;
+    display: inline-block;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+}
+
+/* Hauptcontainer, der jetzt den gesamten vertikalen Bereich nutzt */
+.container {
+    width: 900px; /* Breite bleibt gleich */
+    height: calc(100vh - 50px); /* Höhe von oben bis unten minus ein wenig Platz */
+    margin-top: 0px;
+    padding: 20px;
+    background: #999999; /* Hintergrundfarbe */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Schatteneffekt */
+    border: 5px solid #333; /* Dunkler Rahmen */
+    overflow-y: auto; /* Scrollbar aktivieren, falls Inhalt zu groß ist */
+}
+
+/* Grid-Layout für die Memes */
+.meme-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2-spaltiges Grid */
+    gap: 20px;
+    padding: 10px;
+    justify-content: center;
+}
+
+/* Stil für einzelne Meme-Karten */
+.meme {
+    background: #ffA500;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border: 3px solid #ffA500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Bilder innerhalb der Memes */
+.meme img {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 10px;
+    border: 2px solid #000;
+}
+
+/* Container für die Dropzone */
+.dropzone-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #999999;
+    border-radius: 15px;
+    border: 5px solid #333;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+}
+
+/* Allgemeine Dropzone-Styling */
+#dropzone {
+    width: 120px;
+    height: 120px;
+    background: #ffA500;
+    color: black;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    border: 5px solid #000;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+}
+
+/* Effekt beim Drüberziehen einer Datei */
+#dropzone.dragover {
+    background-color: #ff6600;
+    transform: scale(1.1);
+}
+
+/* Optional: Animation für mehr visuelles Feedback */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+#dropzone:hover {
+    animation: pulse 1s infinite;
+
+}
+
+#help-container {
+    position: fixed;
+    bottom: 0px;
+    right: 135px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+#help-text {
+    color: #333;  /* Blaue Farbe für den Text */
+    font-size: 14px;
+    cursor: pointer;  /* Cursor als Zeiger */
+    font-weight: bold;
+}
+
+#tooltip {
+    display: none;  /* Tooltip ist zunächst unsichtbar */
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 12px;
+    width: 200px;
+}
+
+#help-text:hover + #tooltip {
+    display: block;  /* Tooltip wird beim Hover angezeigt */
+}
